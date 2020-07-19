@@ -51,12 +51,17 @@ class LinkedList:
         while(1):
             cur = cur.next
             if ( i == index-1):
-                temp = cur.next 
+                temp = cur.next
                 cur.next = node
                 node.next = temp
                 break
             i += 1
-        
+    def prepend(self,item):
+        node = Node(item)
+        cur = self.head
+        temp = cur.next
+        cur.next = node
+        node.next = temp
 l=LinkedList()
 l.append(1)
 l.append(2)
@@ -66,6 +71,9 @@ l.delete(1)
 l.display()
 l.append(4)
 l.append(5)
-l.insert(2,10)
+l.insert(2,2)
+l.display()
 l.append(4)
+l.display()
+l.prepend(0)
 l.display()

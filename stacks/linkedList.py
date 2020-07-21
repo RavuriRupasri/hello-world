@@ -62,6 +62,15 @@ class LinkedList:
         temp = cur.next
         cur.next = node
         node.next = temp
+    def reverse(self):
+        pre = None
+        cur = self.head 
+        while(cur != None):
+            nex = cur.next
+            cur.next = pre
+            pre = cur 
+            cur = nex 
+        self.head = pre 
 l=LinkedList()
 l.append(1)
 l.append(2)
@@ -76,4 +85,6 @@ l.display()
 l.append(4)
 l.display()
 l.prepend(0)
+l.display()
+l.reverse()
 l.display()

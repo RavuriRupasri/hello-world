@@ -30,9 +30,6 @@ class stack:
         else:
             self.items[start], self.items[end]=self.items[end],self.items[start]
             return self.reverseRecursive(start+1, end-1)
-        
-        
-        
 st=stack()
 for i in range(10):
     st.push(str(i+1))

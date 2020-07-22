@@ -1,6 +1,8 @@
 class BankAccount:
-    def __init__(self):
+    def __init__(self,name):
         self.balance = 0
+        self.name = name
+        print("Hello! Welcome to this bank.")
     def deposit(self,amt):
         self.balance += amt
     def withdrawal(self,amt):
@@ -17,8 +19,9 @@ class BankAccount:
         else:
             print("Transfer is not possible. ")
 class fixedDeposit:
-    def __init__(self):
-        self.amt = 0
+    def __init__(self,name1):
+        self.amt = 0 
+        self.name1 = name1 
     def deposit(self,amount):
         self.amt += amount
         print("Thank you for depositing your amount. ")
@@ -32,9 +35,17 @@ class fixedDeposit:
         print("Your amount is safe in fixed deposit. ")
     def balance(self):
         return self.amt 
-bank1 = BankAccount()
+name = input("Enter your name to create a bank account.")
+bank1 = BankAccount(name)
 bank1.deposit(100)
-bank2 = BankAccount()
+name1 = input("Enter your name to create fixed deposit. ")
+bank2 = fixedDeposit(name1)
 bank2.deposit(200)
-bank2.transfer(bank1,bank2.display())
+if(bank2.withdrawal()):
+    x = bank2.balance()
+    bank2 = BankAccount(name1)
+    bank2.deposit(x)
+    if(name == name1):
+        bank2.transfer(bank1,x)
 print(bank1.display())
+        

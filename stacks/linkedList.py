@@ -39,7 +39,7 @@ class LinkedList:
         while(cur != None):
             count += 1 
             cur = cur.next
-        print(count)
+        return count
     def length_recursive(self,cur = 0):
         if(cur == 0):
             cur = self.head
@@ -124,6 +124,14 @@ class LinkedList:
             return cur.data;
         else:
             return self.getNth_recursive(ind-1,cur.next)
+    def getNth_last(self,node):
+        cur = self.head
+        i= 0
+        while(cur != None):
+            if(i == self.length()-node):
+                return cur.data
+            i += 1 
+            cur = cur.next
 l = LinkedList()
 l.append(1)
 l.append(2)
@@ -138,3 +146,4 @@ l.display()
 print(l.length_recursive())
 print(l.search_recursive(1))
 print(l.getNth_recursive(2))
+print(l.getNth_last(1))

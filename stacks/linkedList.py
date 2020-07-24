@@ -132,6 +132,32 @@ class LinkedList:
                 return cur.data
             i += 1 
             cur = cur.next
+    def middle(self):
+        ind = 0
+        cur = self.head
+        while(cur != None):
+            if(ind == self.length()//2):
+                print(cur.data)
+                return
+            ind += 1 
+            cur = cur.next
+    def count(self,item):
+        c = 0
+        cur = self.head
+        while(cur != None):
+            if(cur.data == item):
+                c += 1 
+            cur = cur.next
+        return c 
+    def count_recursive(self,item,cur):
+        if(cur == None):
+            return 0;
+        else:
+            if(cur.data == item):
+                return 1+self.count_recursive(item,cur.next);
+            else:
+                return self.count_recursive(item,cur.next);
+        
 l = LinkedList()
 l.append(1)
 l.append(2)

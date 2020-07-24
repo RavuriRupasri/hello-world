@@ -157,6 +157,13 @@ class LinkedList:
                 return 1+self.count_recursive(item,cur.next);
             else:
                 return self.count_recursive(item,cur.next);
+    def palindrome(self):
+        x = self.display()
+        self.reverse()
+        y = self.display()
+        if(x == y):
+            return True
+        return False
         
 l = LinkedList()
 l.append(1)
@@ -166,9 +173,7 @@ l.append(4)
 l.insert(1,6)
 l.delete_item(3)
 l.search(25)
-l.display()
-l.reverse()
-l.display()
+pritn(l.palindrome())
 print(l.length_recursive())
 print(l.search_recursive(1))
 print(l.getNth_recursive(2))

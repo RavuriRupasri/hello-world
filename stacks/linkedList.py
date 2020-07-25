@@ -1,3 +1,4 @@
+from Stacks_deleting import stack
 class Node:
     def __init__(self,data = None):
         self.data = data
@@ -164,17 +165,25 @@ class LinkedList:
         if(x == y):
             return True
         return False
-        
+    def palin(self):
+        st = stack()
+        cur = self.head
+        flag = 0
+        while( cur != None):
+            st.push(cur.data)
+            cur = cur.next
+        cur = self.head
+        while( cur != None):
+            if(cur.data != st.pop()):
+                flag = 1
+                break
+            cur = cur.next
+        return flag == 0;   
 l = LinkedList()
-l.append(1)
-l.append(2)
-l.append(3)
+l.append(5)
 l.append(4)
-l.insert(1,6)
-l.delete_item(3)
-l.search(25)
-pritn(l.palindrome())
-print(l.length_recursive())
-print(l.search_recursive(1))
-print(l.getNth_recursive(2))
-print(l.getNth_last(1))
+l.append(3)
+l.append(5)
+l.append(5)
+l.display()
+print(l.palin())

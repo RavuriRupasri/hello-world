@@ -6,12 +6,7 @@ class stack:
     def push(self,item):
         self.items.append(item)
     def pop(self):
-        if self.isempty():
-            print("Underflow condition")
-        else:
-            n=len(self.items)
-            self.items=self.items[:n-1]
-            return self.items
+        return self.items.pop()
     def top(self):
         return self.items[-1]
     def delstack(self,n ):
@@ -30,16 +25,3 @@ class stack:
         else:
             self.items[start], self.items[end]=self.items[end],self.items[start]
             return self.reverseRecursive(start+1, end-1)
-st=stack()
-for i in range(10):
-    st.push(str(i+1))
-'''
-print(st.delstack())
-print(st.reverse())
-print(st.top())
-print(st.pop())
-print(st.pop())
-print(st.pop())
-'''
-print(st.reverseRecursive())
-print(st.delstack(3))

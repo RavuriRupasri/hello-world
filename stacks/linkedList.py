@@ -178,12 +178,36 @@ class LinkedList:
                 flag = 1
                 break
             cur = cur.next
-        return flag == 0;   
+        return flag == 0; 
+    def detection(self):
+        cur = self.head
+        flag = 0
+        l = []
+        while(cur != None):
+            l.append(cur)
+            if(cur.next in l):
+                    print("It has a loop")
+                    flag = 1
+                    break 
+            cur = cur.next
+        if(flag == 0):
+            print("It does not have a loop")
+    def removeDuplicates(self):
+        cur = self.head
+        while(cur.next != None):
+            if(cur.data == cur.next.data):
+                temp = cur.next
+                cur.next = temp.next
+            else:
+                cur = cur.next
+        
 l = LinkedList()
-l.append(5)
-l.append(4)
+l.append(1)
+l.append(1)
+l.append(2)
 l.append(3)
-l.append(5)
-l.append(5)
+l.append(3)
+l.append(3)
 l.display()
-print(l.palin())
+l.removeDuplicates()
+l.display()

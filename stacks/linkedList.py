@@ -165,7 +165,7 @@ class LinkedList:
         if(x == y):
             return True
         return False
-    def palin(self):
+    def palindrome_stack(self):
         st = stack()
         cur = self.head
         flag = 0
@@ -200,14 +200,38 @@ class LinkedList:
                 cur.next = temp.next
             else:
                 cur = cur.next
+    def removeDuplicates_unsorted(self):
+        cur = self.head
+        l = []
+        while(cur.next != None):
+            if(cur.next.data in l):
+                temp = cur.next
+                cur.next = temp.next
+            else:
+                l.append(cur.data)
+                cur = cur.next
+    def length_loop(self):
+        cur = self.head
+        l = []
+        count = 0
+        while(cur != None):
+            l.append(cur)
+            if(cur.next in l):
+                count += 1
+                if(l.count(cur.next) == 3):
+                    return (count-1)//2
+            cur = cur.next 
+        else:
+            return False
+                
+                
         
 l = LinkedList()
 l.append(1)
-l.append(1)
 l.append(2)
-l.append(3)
-l.append(3)
-l.append(3)
+l.append(4)
+l.append(2)
 l.display()
-l.removeDuplicates()
+l.head.next.next.next.next = l.head.next
+print(l.length_loop())
 l.display()

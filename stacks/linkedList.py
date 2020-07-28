@@ -223,15 +223,35 @@ class LinkedList:
             cur = cur.next 
         else:
             return False
-                
-                
-        
+    def swapNodes(self,x,y):
+        cur = self.head
+        if(x == y):
+            return ;
+        tempx = 0
+        tempy = 0
+        while(cur.next != None):
+            if(cur.next.data == x):
+                tempx = cur
+            elif(cur.next.data == y):
+                tempy = cur
+            cur = cur.next
+        if ( tempx != 0 and tempy != 0):
+            temp = tempx.next
+            tempx.next = tempy.next
+            tempy.next = temp      
+            temp = tempx.next.next
+            tempx.next.next = tempy.next.next
+            tempy.next.next = temp  
+
+  
 l = LinkedList()
 l.append(1)
 l.append(2)
 l.append(4)
-l.append(2)
+l.append(6)
+l.append(3)
+l.append(7)
+l.append(6)
 l.display()
-l.head.next.next.next.next = l.head.next
-print(l.length_loop())
+l.swapNodes(4,3)
 l.display()

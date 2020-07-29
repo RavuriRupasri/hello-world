@@ -8,9 +8,10 @@ class DoubleLinkedList:
         self.head = None
     def append(self,item):
         node = Node(item)
+        node.next = None
         if(self.head == None):
+            node.prev = None 
             self.head = node
-            node.next = None
             return 
         cur = self.head
         while(cur.next != None):
@@ -43,7 +44,7 @@ class DoubleLinkedList:
     def display(self):
         cur = self.head
         print("Forward direction\n")
-        while(cur.next != None):
+        while(cur != None):
             print "%d" %cur.data,
             last = cur
             cur = cur.next
@@ -51,11 +52,20 @@ class DoubleLinkedList:
         while(last != None):
             print "%d" %last.data,
             last = last.prev
+    def deleteNode(self,node):
+        if(node == self.head):
+            self.head = node.next
+            node.prev = None 
+            return 
+        prev = node.prev
+        next = node.next
+        prev.next = next
+        next.prev = prev 
 dl = DoubleLinkedList()
 dl.append(1)
 dl.append(2)
 dl.append(3)
 dl.append(4)
 dl.append(5)
-dl.insertBefore(dl.head.next , 3)
+dl.deleteNode(dl.head.next)
 dl.display()

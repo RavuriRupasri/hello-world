@@ -17,6 +17,15 @@ class DoubleLinkedList:
             cur = cur.next
         cur.next = node 
         node.prev = cur
+    def insertBefore(self,item):
+        node = Node(item)
+        if (self.head == None):
+            self.head = node 
+            return  
+        node.next = self.head
+        self.head.prev = node 
+        self.head = node 
+        node.prev = None 
     def display(self):
         cur = self.head
         print("Forward direction\n")
@@ -34,4 +43,5 @@ dl.append(2)
 dl.append(3)
 dl.append(4)
 dl.append(5)
+dl.insertBefore(0)
 dl.display()

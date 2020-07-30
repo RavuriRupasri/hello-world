@@ -53,6 +53,8 @@ class DoubleLinkedList:
             print "%d" %last.data,
             last = last.prev
     def deleteNode(self,node):
+        if(self.head == None or node == None):
+            return 
         if(node == self.head):
             self.head = node.next
             node.prev = None 
@@ -61,11 +63,39 @@ class DoubleLinkedList:
         next = node.next
         prev.next = next
         next.prev = prev 
+    def removeDuplicates(self):
+        if(self.head == None):
+            return 
+        cur = self.head
+        while(cur.next != None):
+            if(cur.data == cur.next.data):
+                temp = cur.next
+                cur.next = temp.next
+                temp.prev = cur.prev
+            else:
+                cur = cur.next
+    def removeDuplicatesUnsorted(self):
+        if(self.head == None):
+            return 
+        cur = self.head
+        l = []
+        while(cur.next != None):
+            if(cur.data in l):
+                temp = cur.prev 
+                temp.next = cur.next
+                cur = cur.next
+                cur.prev = temp
+            else:
+                l.append(cur.data)
+                cur = cur.next 
+                
 dl = DoubleLinkedList()
 dl.append(1)
-dl.append(2)
+dl.append(5)
 dl.append(3)
 dl.append(4)
+dl.append(3)
 dl.append(5)
-dl.deleteNode(dl.head.next)
+dl.append(6)
+dl.removeDuplicatesUnsorted()
 dl.display()

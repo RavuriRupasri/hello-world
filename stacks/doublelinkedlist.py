@@ -80,11 +80,10 @@ class DoubleLinkedList:
         cur = self.head
         l = []
         while(cur.next != None):
-            if(cur.data in l):
-                temp = cur.prev 
-                temp.next = cur.next
-                cur = cur.next
-                cur.prev = temp
+            if(cur.next.data in l):
+                temp = cur.next
+                cur.next = temp.next
+                temp.prev = cur   
             else:
                 l.append(cur.data)
                 cur = cur.next 
@@ -96,6 +95,6 @@ dl.append(3)
 dl.append(4)
 dl.append(3)
 dl.append(5)
-dl.append(6)
+dl.append(1)
 dl.removeDuplicatesUnsorted()
 dl.display()

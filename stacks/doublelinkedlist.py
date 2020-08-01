@@ -87,14 +87,24 @@ class DoubleLinkedList:
             else:
                 l.append(cur.data)
                 cur = cur.next 
+    def deleteAllOccurences(self,item):
+        cur = self.head
+        while(cur != None):
+            if(cur.data == item):
+                temp = cur.next
+                element = self.deleteNode(cur)
+                cur = temp
+            else:
+                cur = cur.next
+                
                 
 dl = DoubleLinkedList()
-dl.append(1)
-dl.append(5)
+dl.append(2)
 dl.append(3)
+dl.append(1)
 dl.append(4)
 dl.append(3)
-dl.append(5)
-dl.append(1)
-dl.removeDuplicatesUnsorted()
+dl.append(3)
+dl.append(7)
+dl.deleteAllOccurences(3)
 dl.display()

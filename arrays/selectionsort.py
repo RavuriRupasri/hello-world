@@ -1,3 +1,4 @@
+#a = [4,5,7,3,2]
 n = int(input())
 a = list(map(int,input().strip().split()))[:n]
 for i in range(n):

@@ -1,5 +1,5 @@
 n = int(input())
-a = list(map(int,input().strip().split()))
+a = list(map(int,input().strip().split()))[:n]
 for i in range(n):
     for j in range(0,n-i-1):
         if(a[j] > a[j+1]):
